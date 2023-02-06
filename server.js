@@ -16,19 +16,19 @@ server.use(express.static("public"));
 server.use(bodyParser.json());
 
 // Handler for GET /json request:
-function getJson(request, response){
+function getJson(req, res){
     response.json(myData);
 }
 
 // Handler for GET /text request:
-function getText(request, response){
+function getText(req, res){
     let textString = "The sensor reading is " +
     myData.sensor;
     response.send(textString);
 }
 
 // Handler for POST /data request:
-function postData(request, response){
+function postData(req, res){
     console.log("Received a post request.");
     console.log(request.body);
     // If there is a temperature value in the body of the request:
@@ -40,7 +40,7 @@ function postData(request, response){
 }
 
 // Server routes:
-server.get('/conndev-sensor', (request, response) => {
+server.get('/conndev-sensor', (req, res) => {
     res.send("Hello there. Running the script shows this text, but not the index.html file ...");
 });
 server.get("/json", getJson);
