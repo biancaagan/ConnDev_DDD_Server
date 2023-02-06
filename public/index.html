@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <script src="server.js"></script>
+        <title>Loudness Sensor</title>
+    </head>
+
+    <body>
+        <h1>Here I will (hopefully) display the levels of the loudness sensor located in my apartment.</h1>
+        <p>For this, I used Tom's fetch server with node.js example.</p>
+        <input type="button" value="Fetch JSON" onClick="fetchJSON();">
+        <input type="button" value="Fetch Text" onClick="fetchText();"> <br>
+        Loudness Level (makes a POST request with fetch): <input type="range" value=15 min=0 max=1000 onChange="postJson(this.value);"> 
+        <div id="result"></div>
+    </body>
+
+</html>
