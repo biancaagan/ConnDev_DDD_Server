@@ -40,6 +40,9 @@ function postData(request, response){
 }
 
 // Server routes:
+server.get('/conndev-sensor', (req, res) => {
+    res.send("Hello there. Running the script shows this text, but not the index.html file ...");
+});
 server.get("/json", getJson);
 server.get("/text", getText);
 server.post("/data", postData);
