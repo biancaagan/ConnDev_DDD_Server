@@ -11,7 +11,7 @@ var myData = {
 };
 
 // Serve al the static files in the public folder:
-server.use('/var/www/biancasbread.com/ConnDev_DataDashboard', express.static("public"));
+server.use(express.static("public"));
 // Use the body parser middleware:
 server.use(bodyParser.json());
 
