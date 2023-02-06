@@ -2,7 +2,7 @@ const express = require("express");
 const server = express();
 const bodyParser = require("body-parser");
 
-const portNum = 8000;
+const portNum = 8888;
 
 // JSON data to serve as a response, and to modify
 // when you get a POST request:
@@ -40,14 +40,19 @@ function postData(request, response){
 }
 
 // Server routes:
-server.get('/conndev-sensor', (req, res) => {
+server.get('/conndev-sensor', (request, response) => {
     res.send("Hello there. Running the script shows this text, but not the index.html file ...");
 });
 server.get("/json", getJson);
 server.get("/text", getText);
 server.post("/data", postData);
 
+
+function serverStart(){
+    console.log("Server started on port " + portNum);
+}
+
 // Listen for requests:
-const listener = server.listen(portNum, () => {
-    console.log("Your app is listening on port " + portNum);
-});
+server.listen(portNum, serverStart);
+
+
