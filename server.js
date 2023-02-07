@@ -30,7 +30,7 @@ function getText(req, res){
 // Handler for POST /data request:
 function postData(req, res){
     console.log("Received a post request.");
-    console.log(request.body);
+    console.log(req.body);
     // If there is a temperature value in the body of the request:
     if(request.body.sensor){
         // Update the temperature value in myData:
