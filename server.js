@@ -10,21 +10,21 @@ var myData = {
     sensor: 20
 };
 
-// Serve al the static files in the public folder:
+// Serve alL the static files in the public folder:
 server.use('/conndev-sensor/', express.static("public"));
 // Use the body parser middleware:
 server.use(bodyParser.json());
 
 // Handler for GET /json request:
 function getJson(req, res){
-    response.json(myData);
+    res.json(myData);
 }
 
 // Handler for GET /text request:
 function getText(req, res){
     let textString = "The sensor reading is " +
     myData.sensor;
-    response.send(textString);
+    res.send(textString);
 }
 
 // Handler for POST /data request:
@@ -36,14 +36,13 @@ function postData(req, res){
         // Update the temperature value in myData:
         myData.sensor = request.body.sensor;
     }
-    response.json(myData);
+    res.json(myData);
 }
 
 // Server routes:
 // server.get('/conndev-sensor', (req, res) => {
 //     res.send("Hello there. Running the script shows this text, but not the index.html file ...");
 // });
-
 server.get("/conndev-sensor/json", getJson);
 server.get("/conndev-sensor/text", getText);
 server.post("/conndev-sensor/data", postData);
