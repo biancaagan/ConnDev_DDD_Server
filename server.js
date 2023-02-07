@@ -32,9 +32,9 @@ function postData(req, res){
     console.log("Received a post request.");
     console.log(req.body);
     // If there is a temperature value in the body of the request:
-    if(request.body.sensor){
+    if(req.body.sensor){
         // Update the temperature value in myData:
-        myData.sensor = request.body.sensor;
+        myData.sensor = req.body.sensor;
     }
     res.json(myData);
 }
