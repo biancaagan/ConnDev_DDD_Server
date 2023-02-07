@@ -1,31 +1,15 @@
-// var express = require('express');       // include express.js
-// const res = require('express/lib/response');
-// var server = express();         // a local instance of it
-
-// function serverStart(){
-//     console.log("Server started.");
-// }
-
-// // Start the server
-// server.listen(8888, serverStart);
-
-// // Basic route
-// server.get('/conndev-sensor', (req, res) => {
-//     res.send("Hello there.\n Here you will (eventually) see sensor data.\n");
-// });
-
 
 function fetchJSON(){
     // Make the HTTP/S call:
-    fetch('/json')
-        .then(response => response.json())  // conver response to JSON
-        .then(data => getResponse(data))    // get he body of the response
+    fetch('/conndev-sensor/json')
+        .then(response => response.json())  // convert response to JSON
+        .then(data => getResponse(data))    // get the body of the response
         .catch(error => getResponse(error));    // if there is an error
 }
 
 function fetchText(){
     // Make the HTTP/S call:
-    fetch('/text')
+    fetch('/conndev-sensor/text')
         .then(response => response.text())  // convert response to text
         .then(data => getResponse(data))    // get the body of the response
         .catch(error => getResponse(error));    // if there is an eror
@@ -43,7 +27,7 @@ function postJson(value){
     }
 
     // Make the HTTP/S call:
-    fetch('/data', params)
+    fetch('/conndev-sensor/data', params)
         .then(response => response.json())  // convert response to text
         .then(data => getResponse(JSON.stringify(data)))    // get the body of the response
         .catch(error => getResponse(error));    // if there is an error
