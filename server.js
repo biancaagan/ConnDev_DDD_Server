@@ -44,9 +44,9 @@ function postData(req, res){
 //     res.send("Hello there. Running the script shows this text, but not the index.html file ...");
 // });
 
-server.get("/json", getJson);
-server.get("/text", getText);
-server.post("/data", postData);
+server.get("/conndev-sensor/json", getJson);
+server.get("/conndev-sensor/text", getText);
+server.post("/conndev-sensor/data", postData);
 
 
 function serverStart(){
