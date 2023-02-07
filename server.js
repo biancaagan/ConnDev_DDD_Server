@@ -11,7 +11,7 @@ var myData = {
 };
 
 // Serve al the static files in the public folder:
-server.use(express.static("public"));
+server.use('/conndev-sensor/', express.static("public"));
 // Use the body parser middleware:
 server.use(bodyParser.json());
 
@@ -40,9 +40,9 @@ function postData(req, res){
 }
 
 // Server routes:
-server.get('/conndev-sensor', (req, res) => {
-    res.send("Hello there. Running the script shows this text, but not the index.html file ...");
-});
+// server.get('/conndev-sensor', (req, res) => {
+//     res.send("Hello there. Running the script shows this text, but not the index.html file ...");
+// });
 
 server.get("/json", getJson);
 server.get("/text", getText);
